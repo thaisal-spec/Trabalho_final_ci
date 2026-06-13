@@ -10,15 +10,14 @@
   "author": "",
   "license": "ISC",
   "type": "module",
-  "dependencies": {
-    "mocha": "^11.7.6"
-  },
   "directories": {
     "test": "test"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com"
+  },
+  "devDependencies": {
+    "mocha": "^11.7.6"
   }
 }
