@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - master
 
   workflow_dispatch:
 
@@ -16,11 +15,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do código
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
 
@@ -28,12 +25,12 @@ jobs:
         run: npm install
 
       - name: Executar testes
-        run: npx mocha test/*.js --reporter spec
+        run: npm test
 
       - name: Gerar relatório
         run: |
           mkdir -p relatorios
-          npx mocha test/*.js --reporter json > relatorios/resultado-testes.json
+          npm test -- --reporter json > relatorios/resultado-testes.json
 
       - name: Publicar relatório
         uses: actions/upload-artifact@v4
